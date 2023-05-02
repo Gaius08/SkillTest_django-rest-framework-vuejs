@@ -19,7 +19,9 @@
                       <v-row>
                         <v-col cols="12" sm="7"> </v-col>
                         <v-col cols="12" sm="5" p="5px">
-                          <span class="caption blue--text mt-n1">Forgot password</span>
+
+                          <!-- <span class="caption blue--text mt-n1">Forgot password</span> -->
+                          
                         </v-col>
                       </v-row>
                       <div class="text-center">
