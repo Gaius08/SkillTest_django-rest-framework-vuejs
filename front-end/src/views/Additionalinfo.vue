@@ -1,9 +1,8 @@
 <template>
-  <v-img :width="2000" height="969" cover
-    src="https://images.unsplash.com/photo-1625225233840-695456021cde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80">
-    <v-container class="d-flex align-center justify-center">
-      <v-card title="Provide Some Additional Information to Set-up Your Account"
-        class="w-50 text-center text-grey-darken-3" elevation="24" rounded="lg">
+  
+    <v-container class="d-flex align-center justify-center w-50">
+      
+        
         <v-container>
           <v-text-field clearable label="Phone Number" type="number" color="blue" variant="solo"
             v-model="phone"></v-text-field>
@@ -19,9 +18,9 @@
             Submit
           </v-btn>
         </router-link>
-      </v-card>
+     
     </v-container>
-  </v-img>
+  
 </template>
 <script>
 import axiosInstance from "../services/services.js";

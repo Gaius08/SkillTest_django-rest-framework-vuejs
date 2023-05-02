@@ -4,60 +4,58 @@
       <v-window v-model="step">
         <v-window-item :value="1">
           <v-row sm="16">
-            <v-col cols="10" md="4" class="bg-blue-darken-4">
+            <v-col cols="10" md="4" class="bg-orange-lighten-5">
               <v-card-text class="mt-12">
                 <h2 class="text-center">Login </h2>
                 <v-row align="center" justify="center">
                   <v-col cols="12" sm="10">
                     <v-form v-on:submit="submitForm">
-                      <v-text-field label="Email" type="email" variant="outlined" color="blue" autocomplete="false"
-                        class="mt-16" v-model="email" />
-                      <v-text-field label="Password" variant="outlined" color="blue" autocomplete="false" :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'
-                        " @click:append-inner="showPassword = !showPassword" :type="showPassword ? 'text' : 'password'"
-                        v-model="password" />
+                      <v-text-field label="Email" type="email" variant="outlined" color="teal" autocomplete="false"
+                        class="mt-16 mb-2" v-model="email" :rules="emailRules" />
+                      <v-text-field label="Password" variant="outlined" color="teal" autocomplete="false"
+                        :rules="passwordRules" :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'
+                          " @click:append-inner="showPassword = !showPassword"
+                        :type="showPassword ? 'text' : 'password'" v-model="password" />
                       <v-row>
                         <v-col cols="12" sm="7"> </v-col>
                         <v-col cols="12" sm="5" p="5px">
                           <span class="caption blue--text mt-n1">Forgot password</span>
                         </v-col>
                       </v-row>
-                      <v-btn @click="login" type="submit" color="blue" dark block tile>Log in</v-btn>
+                      <div class="text-center">
+                        <v-btn @click="login" type="submit" color="teal" class="button">Log in</v-btn>
+                      </div>
                       <h5 class="text-center grey--text mt-4 mb-3">
                         Or Log in using
                       </h5>
-                      <div class="d-flex justify-space-between align-center mx-10 mb-16">
-                        <v-btn outlined color="grey" dark block tile class="w-100">
-                          <i class="fa-brands fa-google"></i> - GOOGLE
-                        </v-btn>
+                      <div class="text-center">
+                        <GoogleButton />
                       </div>
-                      
-                        <v-card-text class="white--text">
-                          <h5 class="text-center">Don't Have an Account Yet?</h5>
-                        </v-card-text>
-                        <div class="text-center">
-                          <v-btn @click="step++">SIGN UP</v-btn>
-                        </div>
-                 
+
+                      <v-card-text class="white--text">
+                        <h5 class="text-center">Don't Have an Account Yet?</h5>
+                      </v-card-text>
+                      <div class="text-center">
+                        <v-btn class="button" @click="step++">SIGN UP</v-btn>
+                      </div>
                     </v-form>
                   </v-col>
                 </v-row>
               </v-card-text>
             </v-col>
-            <v-col cols="12" md="8" class="bg-light-lighten-3 rounded-bl-xl">
+            <v-col cols="12" md="8" class="bg-light">
               <!-- Carousel -->
               <Carousel />
-
             </v-col>
           </v-row>
         </v-window-item>
         <v-window-item :value="2">
           <v-row>
-            <v-col cols="12" md="8" class="bg-light-lighten-3 rounded-br-xl">
+            <v-col cols="12" md="8" class="bg-light">
               <!-- Carousel -->
               <Carousel />
-
             </v-col>
-            <v-col cols="12" md="4" class="bg-blue-darken-4">
+            <v-col cols="12" md="4" class="bg-orange-lighten-5">
               <v-card-text class="mt-12">
                 <h2 class="text-center">Sign Up </h2>
                 <v-row align="center" justify="center">
@@ -65,39 +63,39 @@
                     <v-form v-on:submit="submitSignup">
                       <v-row>
                         <v-col cols="12" sm="6">
-                          <v-text-field label="First Name" type="text" variant="outlined" color="orange " autocomplete="false"
-                            class="mt-4" v-model="firstname" />
+                          <v-text-field label="First Name" type="text" variant="outlined" color="teal "
+                            autocomplete="false" class="mt-4 mb-2" v-model="firstname" :rules="nameRules" />
                         </v-col>
                         <v-col cols="12" sm="6">
-                          <v-text-field label="Last Name" variant="outlined" color="orange" autocomplete="false" class="mt-4"
-                            v-model="lastname" />
+                          <v-text-field label="Last Name" variant="outlined" color="teal" autocomplete="false"
+                            class="mt-4 mb-2" v-model="lastname" :rules="nameRules" />
                         </v-col>
                       </v-row>
-                      <v-text-field label="Email" variant="outlined" color="orange" autocomplete="false" v-model="email" />
-                      <v-text-field label="Password" variant="outlined" color="orange" autocomplete="false" :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'
-                        " @click:append-inner="showPassword = !showPassword" :type="showPassword ? 'text' : 'password'"
-                        v-model="password" />
-                      <v-text-field label="Confirm Password" variant="outlined" color="orange" autocomplete="false"
-                        :append-inner-icon="showPasswordComfirm ? 'mdi-eye-off' : 'mdi-eye'
+                      <v-text-field label="Email" variant="outlined" color="teal" autocomplete="false" class="mb-2"
+                        v-model="emailReg" :rules="emailRules" />
+                      <v-text-field label="Password" variant="outlined" color="teal" autocomplete="false"
+                        :rules="passwordRules" class="mb-2" :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'
+                          " @click:append-inner="showPassword = !showPassword"
+                        :type="showPassword ? 'text' : 'password'" v-model="password1" />
+                      <v-text-field label="Confirm Password" variant="outlined" color="teal" autocomplete="false"
+                        :rules="passwordRules" class="mb-2" :append-inner-icon="showPasswordComfirm ? 'mdi-eye-off' : 'mdi-eye'
                           " @click:append-inner="showPasswordComfirm = !showPasswordComfirm"
                         :type="showPasswordComfirm ? 'text' : 'password'" v-model="password2" />
-                      <v-btn color="blue" type="submit" dark block tile @click="signup">Sign up</v-btn>
+                      <div class="text-center">
+                        <v-btn color="teal" type="submit" class="button" @click="signup">Sign up</v-btn>
+                      </div>
                       <h5 class="text-center grey--text mt-4 mb-3">
                         Or Sign up using
                       </h5>
-                      <div class="d-flex justify-space-between align-center mx-10 mb-11">
-                        <v-btn depressed outlined color="grey" class="w-100">
-                          <i class="fa-brands fa-google"></i> - Google
-                        </v-btn>
+                      <div class="text-center">
+                        <GoogleButton />
                       </div>
-                     
-                        <v-card-text class="white--text">
-                          <h4 class="text-center">Already Signed up?</h4>
-                        </v-card-text>
-                        <div class="text-center">
-                          <v-btn tile outlined dark @click="step--">Log in</v-btn>
-                        </div>
-                      
+                      <v-card-text class="white--text">
+                        <h4 class="text-center">Already Signed up?</h4>
+                      </v-card-text>
+                      <div class="text-center">
+                        <v-btn class="button" @click="step--">Log in</v-btn>
+                      </div>
                     </v-form>
                   </v-col>
                 </v-row>
@@ -112,28 +110,81 @@
 <script>
 import axiosInstance from "../services/services.js";
 import Carousel from "../components/Carousel.vue"
+import GoogleButton from "../components/GoogleButton.vue"
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 export default {
   name: "Login",
   components: {
     Carousel,
+    GoogleButton,
   },
   data() {
     return {
       step: 1,
       email: "",
+      emailReg: "",
       password: "",
+      password1: "",
       password2: "",
       firstname: "",
       lastname: "",
       showPassword: false,
       showPasswordComfirm: false,
+      emailRules: [
+        value => {
+          if (value) return true
+          return 'Password is requred.'
+        },
+        value => {
+          if (/.+@.+\..+/.test(value)) return true
+          return 'E-mail must be valid.'
+        },
+      ],
+      emailRules: [
+        value => {
+          if (value) return true
+          return 'E-mail is requred.'
+        },
+        value => {
+          if (/.+@.+\..+/.test(value)) return true
+          return 'E-mail must be valid.'
+        },
+      ],
+      nameRules: [
+        value => {
+          if (value) return true
+          return 'Name is requred.'
+        },
+        value => {
+          if (value?.length <= 10) return true
+          return 'Name must be less than 5 characters.'
+        },
+      ],
+      passwordRules: [
+        (value) => {
+          if (!value) {
+            return 'Password is required';
+          } else if (value.length < 7) {
+            return 'Password must be at least 7 characters long';
+          } else if (!/[a-z]/.test(value)) {
+            return 'Password must contain at least one lowercase letter';
+          } else if (!/[A-Z]/.test(value)) {
+            return 'Password must contain at least one uppercase letter';
+          } else if (!/\d/.test(value)) {
+            return 'Password must contain at least one number';
+          } else if (!/[!@#$%^&*]/.test(value)) {
+            return 'Password must contain at least one special character (!@#$%^&*)';
+          } else {
+            return true;
+          }
+        },
+      ],
     };
   },
-  props: {
-    source: String,
-  },
+  // props: {
+  //   source: String,
+  // },
   methods: {
     signup() {
       const user = {
@@ -141,7 +192,9 @@ export default {
         first_name: this.firstname,
         last_name: this.lastname,
         email: this.email,
+        emailReg: this.emailReg,
         password: this.password,
+        password1: this.password1,
         password2: this.password2,
       };
       console.log(user);
@@ -152,6 +205,10 @@ export default {
             transition: toast.TRANSITIONS.BOUNCE,
             position: toast.POSITION.TOP_RIGHT,
             autoClose: 2000,
+          });
+          this.$router.push({
+            name: "Additionalinfo",
+            params: { email: this.email },
           });
           console.log("Response from server:", response.data);
         })
@@ -220,23 +277,14 @@ export default {
       } else {
         const email = this.email;
         window.localStorage.setItem("email", email);
-        this.$router.push({
-          name: "Additionalinfo",
-          params: { email: this.email },
-        });
+
       }
     },
   },
 };
 </script>
-<!-- <style scoped>
-.rounded-bl-xl {
-  border-bottom-left-radius: 400px !important;
-  border-top-left-radius: 400px !important;
+<style scoped>
+.button {
+  width: 240px;
 }
-
-.rounded-br-xl {
-  border-bottom-right-radius: 400px !important;
-  border-top-right-radius: 400px !important;
-}
-</style> -->
+</style>
