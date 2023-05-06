@@ -8,13 +8,16 @@
     <div class="mt-16 pa-16 text-center text-blue-grey-darken-3">
       <h2>What field do you want to practice for ?</h2>
     </div>
-    <v-container class="d-flex justify-center align-center mt-12">
+    <v-container class="d-flex justify-center align-center mt-4">
       <div>
         <div>
           <v-row v-for="(stack, index) in stacks" :key="index">
-            <v-btn class="mt-4 list" elevation="4" :class="{ 'active': activeIndex === index }" @click="setActive(index)">
-              <h3>{{ stack.title }}</h3>
-            </v-btn>
+            <v-hover v-slot="{ isHovering, props }" open-delay="0">
+              <v-btn class="mt-4 list" :elevation="isHovering ? 16 : 2"
+                :class="{ 'active': activeIndex === index, 'on-hover': isHovering }" @click="setActive(index)" v-bind="props">
+                <h3>{{ stack.technology_name }}</h3>
+              </v-btn>
+            </v-hover>
           </v-row>
         </div>
         <router-link to="/" class="link d-flex justify-center">
@@ -33,14 +36,16 @@ export default {
   },
   data() {
     return {
-      activeIndex: ""
+      activeIndex: "",
+      stacks: [],
+      selectedStacks: []
     };
   },
   created() {
     axiosInstance.defaults.headers.common['Authorization'] = `Token ${localStorage.getItem('token')}`;
     axiosInstance.get('pref-tech/')
       .then(response => {
-        this.activeIndex = response.data.techObject_serializer
+        this.stacks = response.data.techObject_serializer
         console.log("kk", response.data.techObject_serializer)
       })
       .catch(error => {
@@ -52,22 +57,18 @@ export default {
       this.activeIndex = index
     },
   }
-
 };
 </script>
 <style scoped>
 .link {
   text-decoration: none;
 }
-
 .list {
   width: 400px;
 }
-
 .list:hover {
   background-image: linear-gradient(to bottom right, #eb87d5, #86baee);
 }
-
 .active {
   background-image: linear-gradient(to bottom right, #eb87d5, #86baee);
   color: white;
