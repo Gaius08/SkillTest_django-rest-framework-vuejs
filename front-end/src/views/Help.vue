@@ -10,8 +10,13 @@
     </div>
     <v-container class="d-flex justify-center align-center mt-12">
       <div>
-        <!--reuseable component of STACK-->
-        <Stacks :stacks="stacks" />
+        <div>
+          <v-row v-for="(stack, index) in stacks" :key="index">
+            <v-btn class="mt-4 list" elevation="4" :class="{ 'active': activeIndex === index }" @click="setActive(index)">
+              <h3>{{ stack.title }}</h3>
+            </v-btn>
+          </v-row>
+        </div>
         <router-link to="/" class="link d-flex justify-center">
           <v-btn class="mt-10 bg-blue">Start Practicing</v-btn>
         </router-link>
@@ -20,30 +25,51 @@
   </v-app>
 </template>
 <script>
-import Stacks from '../components/Stack.vue'
 import Navbar from '../components/Navbar.vue'
+import axiosInstance from '../services/services';
 export default {
   components: {
-    Stacks,
     Navbar,
   },
   data() {
     return {
-      stacks: [
-        { title: 'Stack 1' },
-        { title: 'Stack 2' },
-        { title: 'Stack 3' },
-        { title: 'Stack 4' },
-        { title: 'Stack 5' },
-        { title: 'Stack 6' },
-        { title: 'Stack 7' }
-      ]
+      activeIndex: ""
     };
   },
+  created() {
+    axiosInstance.defaults.headers.common['Authorization'] = `Token ${localStorage.getItem('token')}`;
+    axiosInstance.get('pref-tech/')
+      .then(response => {
+        this.activeIndex = response.data.techObject_serializer
+        console.log("kk", response.data.techObject_serializer)
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  },
+  methods: {
+    setActive(index) {
+      this.activeIndex = index
+    },
+  }
+
 };
 </script>
-<style>
+<style scoped>
 .link {
   text-decoration: none;
+}
+
+.list {
+  width: 400px;
+}
+
+.list:hover {
+  background-image: linear-gradient(to bottom right, #eb87d5, #86baee);
+}
+
+.active {
+  background-image: linear-gradient(to bottom right, #eb87d5, #86baee);
+  color: white;
 }
 </style>
