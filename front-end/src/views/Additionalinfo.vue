@@ -5,8 +5,23 @@
       <div class="w-50">
         <v-card class="elevation-24 ma-8">
           <v-card-title>
-            <h3> Provide us Additional Information</h3>
+            <v-row align="center" justify="center">
+              <v-col cols="12" md="8" lg="6">
+                <h3 class="text-blue-grey-darken-3"> Provide us Additional Information</h3>
+              </v-col>
+            </v-row>
           </v-card-title>
+          <v-row align="center" justify="center">
+            <v-col cols="12" md="8" lg="6">
+              <div class="profile">
+                <v-row align="center" justify="center">
+                  <v-col cols="12" md="8" lg="6">
+                    <Avatar />
+                  </v-col>
+                </v-row>
+              </div>
+            </v-col>
+          </v-row>
           <v-container>
             <v-text-field clearable label="Phone Number" type="tel" color="blue" variant="solo" v-model="phone"
               v-mask="'+## (###) ###-####'"></v-text-field>
@@ -27,13 +42,16 @@
     </div>
   </div>
 </template>
-
 <script>
 import axiosInstance from "../services/services.js";
 import VueTheMask from 'vue-the-mask';
+import Avatar from '../components/Avatar.vue';
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 export default {
+  components: {
+    Avatar,
+  },
   data() {
     return {
       phone: "",
@@ -72,3 +90,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.profile {
+  margin-bottom: 70px;
+}
+</style>

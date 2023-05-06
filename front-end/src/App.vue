@@ -1,15 +1,10 @@
 <template>
-  <div>
+  <transition name="fade" mode="out-in">
     <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
-        <div>
-          <component :is="Component" />
-        </div>
-      </transition>
+      <component :is="Component" />
     </router-view>
-  </div>
+  </transition>
 </template>
-
 <script>
 export default {
   mounted() {
@@ -24,19 +19,13 @@ export default {
   },
 };
 </script>
-
 <style>
-.fade-enter-active {
-  transition: all 0.8s ease-in-out;
-}
-
+.fade-enter-active,
 .fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: opacity 0.5s;
 }
-
-.fade-enter-from,
+.fade-enter,
 .fade-leave-to {
-  transform: translateX(20px);
   opacity: 0;
 }
 </style>

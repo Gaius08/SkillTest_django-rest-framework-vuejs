@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Additionalinfo from '../views/Additionalinfo.vue'
 import Help from '../views/Help.vue'
 import Home from '../views/Home.vue'
+import Profile from '../views/Profile.vue'
 
 const routes = [
     {
@@ -26,8 +27,12 @@ const routes = [
         name: 'Home',
         path: '/',
         component: Home,
-    }
-
+    },
+    {
+        name: 'Profile',
+        path: '/profile',
+        component: Profile,
+    },
 ];
 const router = Router();
 export default router;

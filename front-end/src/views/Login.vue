@@ -19,9 +19,7 @@
                       <v-row>
                         <v-col cols="12" sm="7"> </v-col>
                         <v-col cols="12" sm="5" p="5px">
-
                           <!-- <span class="caption blue--text mt-n1">Forgot password</span> -->
-                          
                         </v-col>
                       </v-row>
                       <div class="text-center">
@@ -33,7 +31,6 @@
                       <div class="text-center">
                         <GoogleButton />
                       </div>
-
                       <v-card-text class="white--text">
                         <h5 class="text-center">Don't Have an Account Yet?</h5>
                       </v-card-text>
@@ -74,11 +71,11 @@
                         </v-col>
                       </v-row>
                       <v-text-field label="Email" variant="outlined" color="teal" autocomplete="false" class="mb-2"
-                        v-model="emailReg" :rules="emailRules" />
+                        v-model="email" :rules="emailRules" />
                       <v-text-field label="Password" variant="outlined" color="teal" autocomplete="false"
                         :rules="passwordRules" class="mb-2" :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'
                           " @click:append-inner="showPassword = !showPassword"
-                        :type="showPassword ? 'text' : 'password'" v-model="password1" />
+                        :type="showPassword ? 'text' : 'password'" v-model="password" />
                       <v-text-field label="Confirm Password" variant="outlined" color="teal" autocomplete="false"
                         :rules="passwordRules" class="mb-2" :append-inner-icon="showPasswordComfirm ? 'mdi-eye-off' : 'mdi-eye'
                           " @click:append-inner="showPasswordComfirm = !showPasswordComfirm"
@@ -184,19 +181,20 @@ export default {
       ],
     };
   },
-  // props: {
-  //   source: String,
-  // },
   methods: {
     signup() {
       const user = {
         username: this.firstname,
         first_name: this.firstname,
         last_name: this.lastname,
+        //login page email
+        // email: this.email,
+        // Registration page email
         email: this.email,
-        emailReg: this.emailReg,
+        //login page password
+        // password: this.password,
+        //Registration page password field
         password: this.password,
-        password1: this.password1,
         password2: this.password2,
       };
       console.log(user);
@@ -285,8 +283,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.button {
-  width: 240px;
-}
-</style>

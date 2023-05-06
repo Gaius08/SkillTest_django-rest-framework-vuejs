@@ -23,6 +23,7 @@
   import Slide3 from '@/assets/Login/fa7b4bdc3b2f73e749e5c2c646d4ae13.gif';
   
   export default {
+    name: 'Carousel',
     data() {
       return {
         Slide1,
