@@ -22,7 +22,7 @@
                           <!-- <span class="caption blue--text mt-n1">Forgot password</span> -->
                         </v-col>
                       </v-row>
-                      <div class="text-center">
+                      <div class="text-center mt-2">
                         <v-btn @click="login" type="submit" color="teal" class="button">Log in</v-btn>
                       </div>
                       <h5 class="text-center grey--text mt-4 mb-3">
@@ -187,13 +187,7 @@ export default {
         username: this.firstname,
         first_name: this.firstname,
         last_name: this.lastname,
-        //login page email
-        // email: this.email,
-        // Registration page email
         email: this.email,
-        //login page password
-        // password: this.password,
-        //Registration page password field
         password: this.password,
         password2: this.password2,
       };
