@@ -49,15 +49,6 @@ export default {
       }
     },
   },
-
-
 }
 </script>
-  
-  <!-- <style>
-  .active {
-    background-color: rgb(228, 28, 28);
-    color: white;
-  }
-  </style> -->
   
