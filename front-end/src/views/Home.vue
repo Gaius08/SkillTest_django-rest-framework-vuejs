@@ -145,21 +145,21 @@ export default {
         }
       });
     },
-    async logout() {
-      try {
-        // clear user data from local storage or state
-        localStorage.removeItem("token");
-        // redirect the user to the login page
-        this.$router.push("/login");
-        toast.success("Logged out successfully", {
-          transition: toast.TRANSITIONS.BOUNCE,
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 2000,
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    },
+    // async logout() {
+    //   try {
+    //     // clear user data from local storage or state
+    //     localStorage.removeItem("token");
+    //     // redirect the user to the login page
+    //     this.$router.push("/login");
+    //     toast.success("Logged out successfully", {
+    //       transition: toast.TRANSITIONS.BOUNCE,
+    //       position: toast.POSITION.TOP_RIGHT,
+    //       autoClose: 2000,
+    //     });
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // },
   },
 };
 </script>
