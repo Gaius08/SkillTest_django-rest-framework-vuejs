@@ -21,9 +21,9 @@
             </v-hover>
           </v-row>
         </div>
-        <router-link to="/" class="link d-flex justify-center">
-          <v-btn class="mt-10 bg-blue" @click="sendSelectedStacks">Start Practicing</v-btn>
-        </router-link>
+        <div class="d-flex justify-center">
+          <v-btn class="mt-10 bg-blue" @click="sendSelectedStacks">System Check</v-btn>
+        </div>
       </div>
     </v-container>
   </v-app>
@@ -62,8 +62,9 @@ export default {
       const selectedStack = this.stacks[this.activeIndex]
       axiosInstance.put('pref-tech/', selectedStack)
         .then(response => {
-
+          this.$router.push({ path: `/system-check` });
           console.log("put", response.data)
+
         })
         .catch(error => {
           console.log(error);
@@ -73,10 +74,6 @@ export default {
 };
 </script>
 <style scoped>
-.link {
-  text-decoration: none;
-}
-
 .list {
   width: 400px;
 }
@@ -88,4 +85,5 @@ export default {
 .active {
   background-image: linear-gradient(to bottom right, #eb87d5, #86baee);
   color: white;
-}</style>
+}
+</style>
