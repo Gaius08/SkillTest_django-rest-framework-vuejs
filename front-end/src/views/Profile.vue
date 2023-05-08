@@ -28,7 +28,7 @@
                         </div>
                     </v-card>
                 </v-col>
-                <!--PREVIOUS SESSION-->
+                <!-- PREVIOUS SESSION -->
                 <v-col cols="4">
                     <v-hover v-slot="{ isHovering, props }">
                         <v-card class="mt-16 ml-4" height="365" :elevation="isHovering ? 18 : 2"
@@ -36,7 +36,7 @@
                             <v-card-title>Previous Session</v-card-title>
                         </v-card>
                     </v-hover>
-                    <!--COMMENTS -->
+                    <!-- COMMENTS  -->
                     <v-hover v-slot="{ isHovering, props }">
                         <v-card class="mt-16 ml-4" height="365" :elevation="isHovering ? 18 : 2"
                             :class="{ 'on-hover': isHovering }" v-bind="props">
@@ -44,7 +44,7 @@
                         </v-card>
                     </v-hover>
                 </v-col>
-                <!--UPCOMING SESSION-->
+                <!-- UPCOMING SESSION -->
                 <v-col cols="4">
                     <v-hover v-slot="{ isHovering, props }">
                         <v-card class="mt-16 ml-4" height="365" :elevation="isHovering ? 18 : 2"
@@ -52,7 +52,7 @@
                             <v-card-title>Upcoming Session</v-card-title>
                         </v-card>
                     </v-hover>
-                    <!--RATINGS-->
+                    <!-- RATINGS -->
                     <v-hover v-slot="{ isHovering, props }">
                         <v-card class="mt-16 ml-4" height="365" :elevation="isHovering ? 18 : 2"
                             :class="{ 'on-hover': isHovering }" v-bind="props">
