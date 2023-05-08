@@ -47,7 +47,7 @@ export default {
     axiosInstance.get('pref-tech/')
       .then(response => {
         this.stacks = response.data.techObject_serializer
-        console.log("kk", response.data.techObject_serializer)
+        console.log("getting-stack-list", response.data.techObject_serializer)
       })
       .catch(error => {
         console.log(error);
@@ -63,8 +63,7 @@ export default {
       axiosInstance.put('pref-tech/', selectedStack)
         .then(response => {
           this.$router.push({ path: `/system-check` });
-          console.log("put", response.data)
-
+          console.log("updating-stack-selected", response.data)
         })
         .catch(error => {
           console.log(error);

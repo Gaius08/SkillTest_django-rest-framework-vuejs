@@ -3,7 +3,11 @@
     <div>
         <Navbar />
     </div>
-    
+    <div class="mt-16">
+        <v-checkbox label="Audio Check"></v-checkbox>
+        <v-checkbox label="Video Check"></v-checkbox>
+        <v-checkbox label="Screen Share"></v-checkbox>
+    </div>
 </v-app>
 </template>
 <script>
