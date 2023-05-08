@@ -1,11 +1,11 @@
 <template>
-  <v-row sm="16" class="h-100h pa-16">
+  <v-row sm="16" class="h-100h pa-md-16">
     <v-col cols="14" sm="16" md="18" class="w-100 elevation-24">
       <v-window v-model="step">
         <v-window-item :value="1">
           <v-row sm="16">
             <v-col cols="10" md="4" class="bg-orange-lighten-5">
-              <v-card-text class="mt-12">
+              <v-card-text class="mt-8 mt-md-12">
                 <h2 class="text-center">Login </h2>
                 <v-row align="center" justify="center">
                   <v-col cols="12" sm="10">
@@ -16,25 +16,25 @@
                         :rules="passwordRules" :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'
                           " @click:append-inner="showPassword = !showPassword"
                         :type="showPassword ? 'text' : 'password'" v-model="password" />
-                      <v-row>
-                        <v-col cols="12" sm="7"> </v-col>
+                      <v-row class="mt-4">
+                        <!-- <v-col cols="12" sm="7"> </v-col> -->
                         <v-col cols="12" sm="5" p="5px">
                           <!-- <span class="caption blue--text mt-n1">Forgot password</span> -->
                         </v-col>
                       </v-row>
-                      <div class="text-center mt-2">
+                      <div class="text-center mt-6">
                         <v-btn @click="login" type="submit" color="teal" class="button">Log in</v-btn>
                       </div>
-                      <h5 class="text-center grey--text mt-4 mb-3">
+                      <h5 class="text-center grey--text mt-6 mb-3">
                         Or Log in using
                       </h5>
                       <div class="text-center">
                         <GoogleButton />
                       </div>
                       <v-card-text class="white--text">
-                        <h5 class="text-center">Don't Have an Account Yet?</h5>
+                        <h5 class="text-center mt-8">Don't Have an Account Yet?</h5>
                       </v-card-text>
-                      <div class="text-center">
+                      <div class="text-center mt-6">
                         <v-btn class="button" @click="step++">SIGN UP</v-btn>
                       </div>
                     </v-form>
@@ -54,8 +54,8 @@
               <!-- Carousel -->
               <Carousel />
             </v-col>
-            <v-col cols="12" md="4" class="bg-orange-lighten-5">
-              <v-card-text class="mt-12">
+            <v-col cols="12" md="4" lg="4" class="bg-orange-lighten-5">
+              <v-card-text class="mt-8 mt-md-12">
                 <h2 class="text-center">Sign Up </h2>
                 <v-row align="center" justify="center">
                   <v-col cols="12" sm="10">
@@ -122,9 +122,7 @@ export default {
     return {
       step: 1,
       email: "",
-      emailReg: "",
       password: "",
-      password1: "",
       password2: "",
       firstname: "",
       lastname: "",
