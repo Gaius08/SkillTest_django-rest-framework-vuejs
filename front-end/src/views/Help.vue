@@ -14,14 +14,15 @@
           <v-row v-for="(stack, index) in stacks" :key="index">
             <v-hover v-slot="{ isHovering, props }" open-delay="0">
               <v-btn class="mt-4 list" :elevation="isHovering ? 16 : 2"
-                :class="{ 'active': activeIndex === index, 'on-hover': isHovering }" @click="setActive(index)" v-bind="props">
+                :class="{ 'active': activeIndex === index, 'on-hover': isHovering }" @click="setActive(index)"
+                v-bind="props">
                 <h3>{{ stack.technology_name }}</h3>
               </v-btn>
             </v-hover>
           </v-row>
         </div>
         <router-link to="/" class="link d-flex justify-center">
-          <v-btn class="mt-10 bg-blue">Start Practicing</v-btn>
+          <v-btn class="mt-10 bg-blue" @click="sendSelectedStacks">Start Practicing</v-btn>
         </router-link>
       </div>
     </v-container>
@@ -56,6 +57,18 @@ export default {
     setActive(index) {
       this.activeIndex = index
     },
+    sendSelectedStacks() {
+      axiosInstance.defaults.headers.common['Authorization'] = `Token ${localStorage.getItem('token')}`;
+      const selectedStack = this.stacks[this.activeIndex]
+      axiosInstance.put('pref-tech/', selectedStack)
+        .then(response => {
+
+          console.log("put", response.data)
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    }
   }
 };
 </script>
@@ -63,14 +76,16 @@ export default {
 .link {
   text-decoration: none;
 }
+
 .list {
   width: 400px;
 }
+
 .list:hover {
   background-image: linear-gradient(to bottom right, #eb87d5, #86baee);
 }
+
 .active {
   background-image: linear-gradient(to bottom right, #eb87d5, #86baee);
   color: white;
-}
-</style>
+}</style>

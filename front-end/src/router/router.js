@@ -5,6 +5,7 @@ import Additionalinfo from '../views/Additionalinfo.vue'
 import Help from '../views/Help.vue'
 import Home from '../views/Home.vue'
 import Profile from '../views/Profile.vue'
+import SystemCheck from '../views/SystemCheck.vue'
 
 const routes = [
     {
@@ -32,6 +33,11 @@ const routes = [
         name: 'Profile',
         path: '/profile',
         component: Profile,
+    },
+    {
+        name: 'System Check',
+        path: '/system-Check',
+        component: SystemCheck,
     },
 ];
 const router = Router();
